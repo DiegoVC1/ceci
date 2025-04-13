@@ -1,3 +1,22 @@
 <h1>Sí pudimos!!!</h1>
 
 <h2>I BET WE'LL BE BACK TOGETHER, IN LOVE, AND STRONGER, I LOVE YOU</h2>
+
+@if(!songLocked) {
+    <h1>Elige una canción:</h1>
+    <button (click)="selectSong(song1)">Canción 1</button>
+    <button (click)="selectSong(song2)">Canción 2</button>
+  }
+  
+  @if(songLocked) {
+    <h1>¡Has elegido una canción!</h1>
+    @if(selectedSong) {
+        <iframe [src]="selectedSong" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+      }
+  }
+  
+  @if(songLocked) {
+    <h2>Restablecer selección</h2>
+    <input type="password" [(ngModel)]="password" placeholder="Introduce la contraseña">
+    <button (click)="resetSelection()">Restablecer</button>
+  }
